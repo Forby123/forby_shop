@@ -1,0 +1,9 @@
+<%= render :partial => "shop/menu" %>
+<div class="breadcrumb">
+	<%= link_to 'Cписок категорий', shop_categories_path%> > <%= @category.name%>
+</div>
+<%if @category%>
+<%= "Страница просмотра" + ' ' + @category.name %>
+<%else%>
+<%= "Категория не найдена"%>
+<%end%>

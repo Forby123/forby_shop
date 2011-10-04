@@ -1,0 +1,10 @@
+<%= render :partial => "shop/menu" %>
+<h2>Список свойств"<%= @category.name%>":</h2>
+<% @properties.each do |property| %>
+    <p>
+    <%= property.value %>
+    </p>
+    <property>
+    <%= property.type %>
+    </p>
+<% end %>

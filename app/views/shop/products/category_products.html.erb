@@ -1,0 +1,15 @@
+<%= render :partial => "shop/menu" %>
+<div class="breadcrumb">
+	<%= link_to 'Категории товаров', shop_products_path%> > <%=@category.name%>
+</div>
+<h2>Список товаров в категории "<%= @category.name%>":</h2>
+<% @products.each do |product| %>
+    <p>
+    <%= product.name %>
+      <%= link_to 'удалить', product, :confirm => 'Удалить товар?', :method => :delete%>
+      <%= link_to 'редактировать', edit_shop_product_path(product), :method => :get%>
+    </p>
+<% end %>
+<p>
+<%= link_to 'Добавить товар', new_shop_product_path(:category_id=>@category.id)%>
+</p>

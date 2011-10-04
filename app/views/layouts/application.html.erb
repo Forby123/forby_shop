@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Forbyshop</title>
+  <%= stylesheet_link_tag :all %>
+  <%= javascript_include_tag :defaults %>
+  <%= csrf_meta_tag %>
+</head>
+<body>
+	<% if flash[:error]!='' %>
+		<%=flash[:error]%>
+  <%end%>		
+  <div id="user_nav">
+  <%if user_signed_in?%>
+    Здравствуйте, <%= current_user.username %>
+    <%= link_to 'выйти', destroy_user_session_path, :method=>:delete %>
+  <%else%>
+    Здравствуйте, Гость.
+    <%= link_to 'войти', new_user_session_path %>
+    <%= link_to 'зарегистрироваться', new_user_registration_path %>
+  <%end%>
+  </div>
+<%= yield %>
+
+</body>
+</html>

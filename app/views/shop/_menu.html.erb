@@ -1,0 +1,16 @@
+<div style="background-color:#b0c4de">
+<h3>
+<%if current_page?(:controller=>"categories")%>
+	<strong><%= link_to 'Категории',shop_categories_path %></strong>	
+	<%= link_to 'Товары',shop_products_path %>
+<%else%> 
+	<%if current_page?(:controller=>"products")%>
+		<%= link_to 'Категории',shop_categories_path %>		
+		<strong><%= link_to 'Товары',shop_products_path %></strong>	
+	<%else%>	
+		<%= link_to 'Категории',shop_categories_path %>		
+		<%= link_to 'Товары',shop_products_path %>		
+	<%end%>	
+<%end%>
+</h3>
+</div>

@@ -1,0 +1,14 @@
+<%= render :partial => "shop/menu" %>
+<div class="breadcrumb">
+	<%= link_to 'Список категорий', shop_categories_path%> > Новая категория
+</div>
+<% form_for :category, @category, :url => { :action => "create" } do |f| %>
+  <%if flash[:error] %> <br/>
+    Возникла ошибка:<%= flash[:error] %> <br/>
+  <% end %>
+  <%= f.label :name %>
+  <%= f.text_field :name %> <br/>
+  <%= f.label :comment %>
+  <%= f.text_field :comment %><br/>
+  <%= submit_tag %>
+<% end %>

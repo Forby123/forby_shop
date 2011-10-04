@@ -1,0 +1,11 @@
+<%= render :partial => "shop/menu" %>
+<%= "Список категорий:"%>
+<% @categories.each do |category| %>
+    <p>
+    <%= category.name%> (<%= category.products.count%>)
+      <%= link_to 'удалить', category, :confirm => 'Удалить категорию?', :method => :delete%>
+      <%= link_to 'редактировать', edit_shop_category_path(category), :method => :get%>
+    </p>
+<% end %>
+<%= link_to 'Добавить категорию', new_shop_category_path%>
+

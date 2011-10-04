@@ -1,0 +1,6 @@
+<h1>Forbyshop</h1>
+<%if user_signed_in?%>
+<div id="user_menu">
+  <%= link_to 'личный кабинет', shop_products_path %>
+</div>
+<%end%>

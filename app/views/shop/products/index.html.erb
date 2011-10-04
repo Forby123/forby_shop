@@ -1,0 +1,9 @@
+<%= render :partial => "shop/menu" %>
+<%= "Категории товаров:"%>
+<% @categories.each do |category| %>
+    <p>
+    <%= link_to category.name, shop_category_products_path(category), :method => :get%> 
+    (<%= category.products.count%>)
+    </p>
+<% end %>
+

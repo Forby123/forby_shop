@@ -1,0 +1,9 @@
+<%= render :partial => "shop/menu" %>
+<div class="breadcrumb">
+	<%= link_to 'Категории товаров', shop_products_path %> > 
+	<%= link_to @product.category.name, shop_category_products_path(@product.category), :method => :get%> >
+	<%=@product.name%>
+</div>
+<h1>Редактировать товар:</h1>
+
+<%= render 'form' %>
