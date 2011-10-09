@@ -51,6 +51,5 @@ gem 'rails-settings-cached'
 
 # Rails 3.1 - Heroku
 group :production do
-  gem 'therubyracer-heroku'
   gem 'pg'
 end
