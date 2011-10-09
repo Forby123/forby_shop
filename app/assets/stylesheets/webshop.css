@@ -11,9 +11,9 @@ body {
 }
 
 .rs { float: right; margin: 0 10px; border: 1px solid #ddd; padding: 5px; background: #f5f5f5  }
-ul { list-style-position: inside; margin-left: 2px }
-ul li { list-style-type: square; margin-left: 15px;  }
-ul ul li { list-style: none; margin-left: 10px; list-style-type: lower-alpha; list-style-position: inside }
+.submit ul { list-style-position: inside; margin-left: 2px }
+.submit ul li { list-style-type: square; margin-left: 15px;  }
+.submit ul ul li { list-style: none; margin-left: 10px; list-style-type: lower-alpha; list-style-position: inside }
 
 input, textarea {
 border : 1px solid #aaa;
@@ -108,7 +108,7 @@ font : bold 1em "Tahoma", Verdana, Arial, sans-serif;
 padding-left : 2px;
 }
 #header .topong {
-background : #fafafa url(../images/topaff.jpeg) no-repeat bottom;
+background : #fafafa url(../assets/topaff.jpeg) no-repeat bottom;
 height : 66px;
 width : 159px;
 float : right;
@@ -132,7 +132,7 @@ text-decoration : none;
 #menu {
 margin : 0 0;
 padding : 0;
-background : #4b7da7 url(../images/menubg.gif) repeat-x top;
+background : #4b7da7 url(../assets/menubg.gif) repeat-x top;
 color : #fff;
 width : 100%;
 height : 40px;
@@ -167,7 +167,7 @@ text-decoration : none;
 }
 #menu .submit a span {
 float : left;
-background : url(../images/menusep.gif) no-repeat left;
+background : url(../assets/menusep.gif) no-repeat left;
 color : #fff;
 font-weight : bold;
 display : block;
@@ -186,7 +186,7 @@ margin-right : 10px;
 margin-top : -4px;
 }
 #menu #search input.text {
-background : url(../images/input.gif) no-repeat top;
+background : url(../assets/input.gif) no-repeat top;
 width : 110px;
 border : 0;
 padding : 2px 0 0 3px;
@@ -198,19 +198,43 @@ border : 0;
 background : transparent;
 cursor : pointer;
 }
+#module_large {
+margin-top : 10px;
+height : 220px;
+}
+#module_large .padding {
+padding : 13px 20px 10px 20px;
+}
+#module_large img {
+border : 1px solid #d3d3d3;
+float : left;
+margin-bottom : 15px !important;
+margin-bottom : 5px;
+}
+#module_large .price {
+color : #36be00;
+font : bold 1.7em "Tahoma", verdana, Arial;
+padding : 15px 25px 0 0;
+float : right;
+text-align : right;
+}
+#module_large .only {
+color : #e5e5e5;
+font : bold 0.6em "Tahoma", verdana, Arial;
+}
 #modules {
 margin-top : 10px;
 height : 190px;
 }
 #modules #mod3 {
-background : #fafafa url(../images/topgreybox.jpeg) no-repeat top;
+background : #fafafa url(../assets/topgreybox.jpeg) no-repeat top;
 height : 185px;
 width : 258px;
 float : right;
 margin-top : 5px;
 }
 #modules #mod2 {
-background : #fafafa url(../images/topgreybox.jpeg) no-repeat top;
+background : #fafafa url(../assets/topgreybox.jpeg) no-repeat top;
 height : 185px;
 width : 258px;
 float : right;
@@ -218,7 +242,7 @@ margin-right : 3px;
 margin-top : 5px;
 }
 #modules #mod1 {
-background : #fafafa url(../images/topgreybox.jpeg) no-repeat top;
+background : #fafafa url(../assets/topgreybox.jpeg) no-repeat top;
 height : 185px;
 width : 258px;
 float : left;
@@ -269,7 +293,7 @@ background : #fafafa;
 }
 #maincontent #graph {
 margin-top : 15px;
-background : #fafafa url(../images/statgraph2.jpeg) no-repeat left;
+background : #fafafa url(../assets/statgraph2.jpeg) no-repeat left;
 width : 203px;
 height : 156px;
 float : left;
@@ -348,5 +372,47 @@ float : right;
 text-align : right;
 }
 .breadcrumb{
-margin-bottom: 10px	
+margin-bottom: 10px;
+}
+#treelist li{
+	list-style: none;	
+	border : 1px solid #888;
+	padding: 2px;
+	margin-top :2px;	
+}
+.borderedlist li {
+list-style: none;
+border : 1px solid #888;
+padding: 2px;
+margin-top :2px;
+}
+#props ul li{
+list-style: none;
+border : 1px solid #888;
+padding: 2px;
+margin-top :2px;
+}
+#props ul li input.position{
+width : 30px;
+}
+.product_props li{
+list-style: none;
+margin-top :2px;
+}
+.controlpanel_menu {
+font : bold 1.2em "Tahoma", verdana, Arial;
+margin-top: 5px;
+margin-bottom: 10px;
+background-color:#b0c4de;
+}
+.row_menu {
+text-align: right;
+}
+.row_caption {
+	float: left;
+}
+.bottom_link{
+	margin-top : 10px;
+	font : bold 1em "Tahoma", verdana, Arial;	
+	margin-bottom : 5px;
 }

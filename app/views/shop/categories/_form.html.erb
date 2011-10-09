@@ -1,0 +1,38 @@
+<%= form_for @category do |cat_form| %>
+  <% if (cat_form.object.level > 0) | cat_form.object.new_record? %>
+  	<%= cat_form.label :parent_id, 'Родительская категория:' %>  <br/>
+		<%= cat_form.select :parent_id, sorted_nested_set_options(Shop::Category, lambda(&:name)) {|i, level| "#{'-' * level} #{i.name}" } %>  <br/>  
+  <% end %>	
+  <%= cat_form.label :name, 'Наименование:' %><br/>
+  <%= cat_form.text_field :name %> <br/>
+  <%= cat_form.label :comment, 'Комментарий:' %><br/>
+  <%= cat_form.text_field :comment %><br/>
+  <br/>
+	<h3>Характеристики категории:</h3>
+	<div id="props">
+		<ul id="sortable">
+			<%= cat_form.fields_for :cat_properties do |cat_prop_form| %>
+				<%if cat_prop_form.object.new_record? %>
+				  </ul>
+				  <br/>
+					<h3>Добавить характеристику:</h3>
+				<%else%>		 	
+			 		<li id="item_<%=cat_prop_form.object.id%>">			 	
+				  <%= cat_prop_form.text_field :position, :class=>'position' %>			
+			  <%end%> 
+	  	  <%= cat_prop_form.label :name, 'Имя:' %>     
+			  <%= cat_prop_form.text_field :name, :class=>'text'%>
+			  <%= cat_prop_form.collection_select :datatype_id, @datatypes, :id, :name%>
+    	  <%= cat_prop_form.label :comment, 'Комментарий:' %>
+    	  <%= cat_prop_form.text_field :comment %>
+   		  <% unless cat_prop_form.object.new_record? %> 
+      		<%= cat_prop_form.check_box '_destroy' %>            
+   	  		<%= cat_prop_form.label '_destroy', '(удалить)' %>                  	  
+   	 		  </li>
+   	 	  <% end %>
+  	  <% end %> 
+  </div>
+<div class="bottom_link">  
+  <%= submit_tag 'Сохранить/Добавить характеристику'%>
+</div>  
+<% end %>

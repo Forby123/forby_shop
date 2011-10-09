@@ -2,13 +2,13 @@
 # and open the template in the editor.
 
 class Shop::ProductsController < ApplicationController
-before_filter :authenticate_user!
+before_filter :authenticate_user!, :except => :show
   def index
   	@categories = Shop::Category.all
   end
   def category_products
     @category = Shop::Category.find(params[:category_id])
-    @products = @category.products
+    @products = @category.products.paginate :page => params[:page], :per_page => 2
   end
   def show
     @product = Shop::Product.find_by_id(params[:id])

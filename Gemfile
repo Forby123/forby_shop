@@ -1,12 +1,30 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.0.4'
+
+gem 'rails', '3.1.1'
+
+# Rails 3.1 - Asset Pipeline
+gem 'sass'
+gem 'uglifier'
+gem 'coffee-script'
+
+gem 'execjs'
+gem 'therubyracer'
+
+
+# Rails 3.1 - JavaScript
+gem "jquery-rails"
+
+gem 'mysql2'
+gem 'devise'
+gem 'acts_as_list'
+gem 'nested_set'
+gem 'will_paginate'
+gem 'rails-settings'
+gem 'rails-settings-cached'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
-
-gem 'mysql2', '<0.3'
-gem 'devise'
 
 # Use unicorn as the web server
 # gem 'unicorn'
@@ -30,3 +48,9 @@ gem 'devise'
 # group :development, :test do
 #   gem 'webrat'
 # end
+
+# Rails 3.1 - Heroku
+#group :production do
+#  gem 'therubyracer-heroku', '0.8.1.pre3'
+#  gem 'pg'
+#end

@@ -1,34 +1,35 @@
   <div id="modules">
     <div id="mod3">
-      <div class="padding"> <img src="images/img.gif" alt="" />
+      <div class="padding"> <img src="/assets/product_small.jpg" alt="" />
         <div class="price"> <span class="only">В НАЛИЧИИ</span><br />
-          35000р. </div>
+          <%= @product3.price%>р </div>
         <div class="text">
-          <h2><a href="">Холодильник Sumsung</a></h2>
-          <p>Samsung Холодильный ларь 21 века</p>
+          <h2><%= link_to @product3.name, shop_product_path(@product3)%></h2>
+          <p><%= @product3.about.truncate(95) %></p>
         </div>
       </div>
     </div>
     <div id="mod2">
-      <div class="padding"> <img src="images/img.gif" alt="" />
+      <div class="padding"> <img src="/assets/product_small.jpg" alt="" />
         <div class="price"> <span class="only">В НАЛИЧИИ</span><br />
-          28000р. </div>
+          <%= @product2.price%>р. </div>
         <div class="text">
-          <h2><a href="">Холодильник Indesit</a></h2>
-          <p>Мы работаем - вы отдыхаете</p>
+          <h2><%= link_to @product2.name, shop_product_path(@product2)%></h2>
+          <p><%= @product2.about.truncate(95)%></p>
         </div>
       </div>
     </div>
     <div id="mod1">
-      <div class="padding"> <img src="images/img.gif" alt="" />
+      <div class="padding"> <img src="/assets/product_small.jpg" alt="" />
         <div class="price"> <span class="only">ПОД ЗАКАЗ</span><br />
-          20000р </div>
+          <%= @product1.price%>р </div>
         <div class="text">
-          <h2><a href="">Холодильник Атлант</a></h2>
-          <p>Белорусский ответ холодильникам Indesit и Samsung</p>
+          <h2><%= link_to @product1.name, shop_product_path(@product1)%></h2>
+          <p><%= @product1.about.truncate(95)%></p>
         </div>
       </div>
     </div>
+    
   </div>
   <div id="maincontent">
     <div id="introduction">
@@ -69,18 +70,6 @@
       <div class="pad">
         <h2>Как выбрать <span class="green">холод</span>ильник</h2>
         <p>  Подавляющее большинство холодильников имеет компрессионное охлаждение. В компрессионном холодильнике охлаждающая жидкость (хладагент) циркулирует под давлением компрессора. Компрессионные холодильники самые экономичные и практически не имеют ограничений по объему. <a href="">ForbyShop </a> поможет вам в выборе подходящего холодильника.</p>
-        <div class="rs">
-          <ul>
-            <li>Отдельно стоящие</li>
-            <li>Встраиваемыне</li>
-            <li>Расположению морозилки
-              <ul>
-                <li>Верхнее</li>
-                <li>Нижнее</li>                
-              </ul>
-            </li>
-          </ul>
-        </div>
         <p>К холодильникам, предназначенным для охлаждения, замораживания и хранения пищевых продуктов и напитков, относятся: отдельно стоящие и встраиваемые холодильники и морозильники, холодильные и винные шкафы с глухими и прозрачными дверьми, переносные и транспортные холодильники. К ним примыкают охладители для воды, ледогенераторы для приготовления пищевого льда, мороженицы и холодильники для косметики и лекарств.<br />
           <a class="readm" href="">Читать дальше...</a> </p>
       </div>

@@ -1,3 +1,4 @@
+# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -10,7 +11,18 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110911110817) do
+ActiveRecord::Schema.define(:version => 20111009125202) do
+
+  create_table "settings", :force => true do |t|
+    t.string   "var",                      :null => false
+    t.text     "value"
+    t.integer  "thing_id"
+    t.string   "thing_type", :limit => 30
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "settings", ["thing_type", "thing_id", "var"], :name => "index_settings_on_thing_type_and_thing_id_and_var", :unique => true
 
   create_table "shop_cat_properties", :force => true do |t|
     t.string  "name"
@@ -22,8 +34,11 @@ ActiveRecord::Schema.define(:version => 20110911110817) do
   end
 
   create_table "shop_categories", :force => true do |t|
-    t.string "name"
-    t.string "comment"
+    t.string  "name"
+    t.string  "comment"
+    t.integer "parent_id"
+    t.integer "lft"
+    t.integer "rgt"
   end
 
   create_table "shop_datatypes", :force => true do |t|
@@ -63,7 +78,7 @@ ActiveRecord::Schema.define(:version => 20110911110817) do
 
   create_table "shop_products", :force => true do |t|
     t.string  "name"
-    t.string  "about"
+    t.text    "about"
     t.integer "price"
     t.integer "category_id"
   end

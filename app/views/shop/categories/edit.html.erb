@@ -2,29 +2,19 @@
 <div class="breadcrumb">
 	<%= link_to 'Категории', shop_categories_path%> > <%=@category.name%>
 </div>
-<% form_for @category do |cat_form| %>
-  <%= cat_form.label :name %>
-  <%= cat_form.text_field :name %> <br/>
-  <%= cat_form.label :comment %>
-  <%= cat_form.text_field :comment %><br/>
-	Характеристики категории:<br/>
-	<% cat_form.fields_for :cat_properties do |cat_prop_form| %>
-		<p>
-		<%if cat_prop_form.object.new_record? %>
-			Добавить характеристику:<br/>
-		<%else%>		 	
-			<%= cat_prop_form.text_field :position %>			
-		<%end%> 
-	  <%= cat_prop_form.label :name, 'Имя' %>      
-		<%= cat_prop_form.text_field :name %>
-		<%= cat_prop_form.collection_select :datatype_id, @datatypes, :id, :name%>
-    <%= cat_prop_form.label :comment, 'Комментарий:' %>
-    <%= cat_prop_form.text_field :comment %>
-   	<% unless cat_prop_form.object.new_record? %> 
-      <%= cat_prop_form.check_box '_destroy' %>            
-   	  <%= cat_prop_form.label '_destroy', '(удалить)' %>                  	  
-    <% end %>
-    </p>
-  <% end %> 
-  <%= submit_tag 'Сохранить/Добавить характеристику'%>  
+<h2>Редактировать категорию:</h2>
+<%= render 'form' %>
+
+<%= content_for :javascript do %>
+  <%= javascript_tag do %>
+		$("#sortable").sortable({
+			axis: 	'y',
+			items: 	'li',
+			update: function(event, ui){									
+								$(this).sortable('toArray').forEach(function(prop_ID, Index){
+									$('#'+prop_ID).find("input[class='position']").val(Index+1);
+								});
+							}
+    });
+  <% end %>    
 <% end %>

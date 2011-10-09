@@ -1,0 +1,38 @@
+<%if @product%>
+	<div class="breadcrumb">
+		<%= link_to 'Товары', shop_products_path %> > 
+		<%= link_to @product.category.name, shop_category_products_path(@product.category), :method => :get%> >
+		<%=@product.name%>
+	</div>
+	<h2><%= @product.name %></h2>	
+	<div id="module_large">	
+  	<div class="padding"> <img src="/assets/product_large.jpg" alt="" />
+  	</div>	
+		<div class="price"> <span class="only">ПОД ЗАКАЗ</span><br />
+			Цена: <%=@product.price %> (рублей)<br/>
+		</div>
+	</div>
+	<br/>
+	
+	<h3>Описание товара:</h3>
+	<div class="text">
+		<%=@product.about %>
+	</div>
+	<br/>		
+	<h3>Характеристики товара:</h3>
+	<br/>			
+	<div class="product_props">
+		<ul>
+		<% @product.product_prop_values.each do |prop_value|%>
+			<li>
+				<%= prop_value.cat_property.name%>:
+    		<%= prop_value.propvalue%>
+    	</li>
+		<% end %>
+		</ul>
+	</div>		
+<%else%>
+	<div class="not_found">
+		"Товар не найден"
+	</div>
+<%end%>

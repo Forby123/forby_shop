@@ -1,7 +1,7 @@
 Forbyshop::Application.routes.draw do
   devise_for :users
   resources :users
-
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -58,12 +58,14 @@ Forbyshop::Application.routes.draw do
   # This is a legacy wild controller route that's not recommended for RESTful applications.
   # Note: This route will make all actions in every controller accessible via GET requests.
   # match ':controller(/:action(/:id(.:format)))'
-  #resources :categories
   namespace "shop" do
     resources :categories, :cat_properties, :products, :product_properties
 	  match '/category_products/:category_id' => 'Products#category_products', :as =>"category_products"
+	  match '/settings/' => 'Settings#index', :as =>"settings"	  
+	  match '/settings/save'  => 'Settings#save', :as =>"settings_save"
 	  match '/products/new/:category_id' => 'Products#new', :as => "new_category_product"        
+	  match '/categories/sort/:category_id/:direction' => 'categories#sort', :as => "categories_sort"          
   end
   match ':controller(/:action(/:id(.:format)))'
-  root :to=> "catalog#index"
+  root :to=> "catalog#index"  
 end

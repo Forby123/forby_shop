@@ -2,13 +2,19 @@
 <div class="breadcrumb">
 	<%= link_to 'Список категорий', shop_categories_path%> > Новая категория
 </div>
-<% form_for :category, @category, :url => { :action => "create" } do |f| %>
-  <%if flash[:error] %> <br/>
-    Возникла ошибка:<%= flash[:error] %> <br/>
-  <% end %>
-  <%= f.label :name %>
-  <%= f.text_field :name %> <br/>
-  <%= f.label :comment %>
-  <%= f.text_field :comment %><br/>
-  <%= submit_tag %>
+<h2>Добавить категорию:</h2>
+<%= render 'form' %>
+
+<%= content_for :javascript do %>
+  <%= javascript_tag do %>
+		$("#sortable").sortable({
+			axis: 	'y',
+			items: 	'li',
+			update: function(event, ui){									
+								$(this).sortable('toArray').forEach(function(prop_ID, Index){
+									$('#'+prop_ID).find("input[class='position']").val(Index+1);
+								});
+							}
+    });
+  <% end %>    
 <% end %>

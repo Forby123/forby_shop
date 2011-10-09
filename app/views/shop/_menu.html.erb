@@ -1,16 +1,18 @@
-<div style="background-color:#b0c4de">
-<h3>
+<h2>Панель управления</h2>
+<div class="controlpanel_menu">
 <%if current_page?(:controller=>"categories")%>
-	<strong><%= link_to 'Категории',shop_categories_path %></strong>	
+	<%= link_to 'Настройки',shop_settings_path %>		
 	<%= link_to 'Товары',shop_products_path %>
+	<strong><%= link_to 'Категории',shop_categories_path %></strong>	
 <%else%> 
 	<%if current_page?(:controller=>"products")%>
+		<%= link_to 'Настройки',shop_settings_path %>			
+		<strong><%= link_to 'Товары',shop_products_path %></strong>		
 		<%= link_to 'Категории',shop_categories_path %>		
-		<strong><%= link_to 'Товары',shop_products_path %></strong>	
 	<%else%>	
-		<%= link_to 'Категории',shop_categories_path %>		
-		<%= link_to 'Товары',shop_products_path %>		
+		<%= link_to 'Настройки',shop_settings_path %>		
+		<%= link_to 'Товары',shop_products_path %>			
+		<%= link_to 'Категории',shop_categories_path %>				
 	<%end%>	
 <%end%>
-</h3>
 </div>
