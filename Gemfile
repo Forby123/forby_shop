@@ -22,7 +22,6 @@ gem 'nested_set'
 gem 'will_paginate'
 gem 'rails-settings'
 gem 'rails-settings-cached'
-gem 'pg' 
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
