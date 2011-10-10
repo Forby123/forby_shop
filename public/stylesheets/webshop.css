@@ -108,7 +108,7 @@ font : bold 1em "Tahoma", Verdana, Arial, sans-serif;
 padding-left : 2px;
 }
 #header .topong {
-background : #fafafa url(../assets/topaff.jpeg) no-repeat bottom;
+background : #fafafa url(../images/topaff.jpeg) no-repeat bottom;
 height : 66px;
 width : 159px;
 float : right;
@@ -132,7 +132,7 @@ text-decoration : none;
 #menu {
 margin : 0 0;
 padding : 0;
-background : #4b7da7 url(../assets/menubg.gif) repeat-x top;
+background : #4b7da7 url(../images/menubg.gif) repeat-x top;
 color : #fff;
 width : 100%;
 height : 40px;
@@ -167,7 +167,7 @@ text-decoration : none;
 }
 #menu .submit a span {
 float : left;
-background : url(../assets/menusep.gif) no-repeat left;
+background : url(../images/menusep.gif) no-repeat left;
 color : #fff;
 font-weight : bold;
 display : block;
@@ -186,7 +186,7 @@ margin-right : 10px;
 margin-top : -4px;
 }
 #menu #search input.text {
-background : url(../assets/input.gif) no-repeat top;
+background : url(../images/input.gif) no-repeat top;
 width : 110px;
 border : 0;
 padding : 2px 0 0 3px;
@@ -213,7 +213,7 @@ margin-bottom : 5px;
 }
 #module_large .price {
 color : #36be00;
-font : bold 1.7em "Tahoma", verdana, Arial;
+font : bold 1em "Tahoma", verdana, Arial;
 padding : 15px 25px 0 0;
 float : right;
 text-align : right;
@@ -227,14 +227,14 @@ margin-top : 10px;
 height : 190px;
 }
 #modules #mod3 {
-background : #fafafa url(../assets/topgreybox.jpeg) no-repeat top;
+background : #fafafa url(../images/topgreybox.jpeg) no-repeat top;
 height : 185px;
 width : 258px;
 float : right;
 margin-top : 5px;
 }
 #modules #mod2 {
-background : #fafafa url(../assets/topgreybox.jpeg) no-repeat top;
+background : #fafafa url(../images/topgreybox.jpeg) no-repeat top;
 height : 185px;
 width : 258px;
 float : right;
@@ -242,7 +242,7 @@ margin-right : 3px;
 margin-top : 5px;
 }
 #modules #mod1 {
-background : #fafafa url(../assets/topgreybox.jpeg) no-repeat top;
+background : #fafafa url(../images/topgreybox.jpeg) no-repeat top;
 height : 185px;
 width : 258px;
 float : left;
@@ -259,7 +259,7 @@ margin-bottom : 5px;
 }
 #modules .price {
 color : #36be00;
-font : bold 1.7em "Tahoma", verdana, Arial;
+font : bold 1.5em "Tahoma", verdana, Arial;
 padding : 15px 25px 0 0;
 float : right;
 text-align : right;
@@ -293,7 +293,7 @@ background : #fafafa;
 }
 #maincontent #graph {
 margin-top : 15px;
-background : #fafafa url(../assets/statgraph2.jpeg) no-repeat left;
+background : #fafafa url(../images/statgraph2.jpeg) no-repeat left;
 width : 203px;
 height : 156px;
 float : left;
