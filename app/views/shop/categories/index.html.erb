@@ -1,30 +1,11 @@
 <%= render :partial => "shop/menu" %>
-<div id="content">
-	<h2>Список категорий:</h2>
-	<ul id='treelist'>
-	<%= render_tree @categories do |node, child| %>
-		<li id="list_<%=node.id%>" style="margin-left: <%=node.level%>em">
-	  <div class="handle">
-	  	<div class="row_caption">
-				<%= node.name %>
-				<%if node.comment != ''%>
-					(<%=node.comment %>)
-				<% end %>	
-			</div>
-			<div class="row_menu">
-      	<%= link_to 'редактировать', edit_shop_category_path(node), :method => :get%>		
-      	<%= link_to 'удалить', node, :confirm => 'Удалить категорию?', :method => :delete%>      	
-      	сортировка:(
-      		<%= link_to 'вверх', shop_categories_sort_path(:category_id=>node.id, :direction=>:left)%>		
-      		<%= link_to 'вниз', shop_categories_sort_path(:category_id=>node.id, :direction=>:right)%>		      
-      	)
-     	</div> 
-	 	</li>
-	 	<%= child %>     	 
-		<% end %>
-	</ul>	 
+<%= "Список категорий:"%>
+<% @categories.each do |category| %>
+    <p>
+    <%= category.name%> (<%= category.products.count%>)
+      <%= link_to 'удалить', category, :confirm => 'Удалить категорию?', :method => :delete%>
+      <%= link_to 'редактировать', edit_shop_category_path(category), :method => :get%>
+    </p>
+<% end %>
+<%= link_to 'Добавить категорию', new_shop_category_path%>
 
-	<div class="bottom_link">
-		<%= link_to 'Добавить категорию', new_shop_category_path %>
-	</div>
-</div>

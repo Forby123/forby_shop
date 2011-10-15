@@ -1,28 +1,22 @@
 <%= form_for(@product) do |prod_form| %>
 	<%= prod_form.hidden_field :category_id %>
   <div class="field">
-    <%= prod_form.label :name,'Наименование' %><br />
+    <%= prod_form.label :name %><br />
     <%= prod_form.text_field :name %>
   </div>
   <div class="field">
-    <%= prod_form.label :price, 'Стоимость' %><br />
-    <%= prod_form.number_field :price %> (рублей)
-  </div>  
-  <div class="field">
-    <%= prod_form.label :about, 'Описание товара' %><br />
-    <%= prod_form.text_area :about, :rows=>7 %>
+    <%= prod_form.label :about %><br />
+    <%= prod_form.text_field :about %>
   </div>
-  <br/>  
-  <h3>Характеристики товара:</h3>
-	<%= prod_form.fields_for :product_prop_values do |prod_prop_form| %>
-  <div class="field">
+  Характеристики товара:<br/>
+	<% prod_form.fields_for :product_prop_values do |prod_prop_form| %>
+	<p>	
 		<%= prod_prop_form.hidden_field :cat_property_id%>     	
-	  <%= prod_prop_form.label :propvalue, prod_prop_form.object.cat_property.name %><br/>      
+	  <%= prod_prop_form.label :propvalue, prod_prop_form.object.cat_property.name %>      
     <%= prod_prop_form.text_field :propvalue%>
-  </div>    
+  </p>    
   <% end %> 
-  <br/>
   <div class="actions">
-    <%= prod_form.submit 'Сохранить' %>
+    <%= prod_form.submit %>
   </div>  
 <% end %>

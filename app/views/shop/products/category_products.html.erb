@@ -3,16 +3,13 @@
 	<%= link_to 'Категории товаров', shop_products_path%> > <%=@category.name%>
 </div>
 <h2>Список товаров в категории "<%= @category.name%>":</h2>
-<ul class="borderedlist">
 <% @products.each do |product| %>
-    <li>
+    <p>
     <%= product.name %>
       <%= link_to 'удалить', product, :confirm => 'Удалить товар?', :method => :delete%>
       <%= link_to 'редактировать', edit_shop_product_path(product), :method => :get%>
-    </li>
+    </p>
 <% end %>
-</ul>
-<%= will_paginate @products, :container => false, :previous_label => "предыдущая", :next_label=> "следующая", %>
-<div class="bottom_link">
+<p>
 <%= link_to 'Добавить товар', new_shop_product_path(:category_id=>@category.id)%>
-</div>
+</p>
