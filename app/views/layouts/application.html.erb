@@ -2,7 +2,7 @@
 <html>
 <head>
   <title>Forby Shop</title>
-	<%= stylesheet_link_tag    :all %>
+	<%= stylesheet_link_tag    "application" %>
 	<%= javascript_include_tag "application" %>	
   <%= csrf_meta_tag %>
 </head>
@@ -16,7 +16,7 @@
   	<%if user_signed_in?%>
     	Здравствуйте, <%= current_user.username %>.
  		  <%if user_signed_in?%>
-    	  <%= link_to 'панель управления, ', shop_categories_path %>
+    	  <%= link_to 'панель управления, ', shop_settings_path %>
   	  <%end%>    	
     	<%= link_to 'выйти', destroy_user_session_path, :method=>'delete'%>
   	<%else%>
@@ -27,14 +27,14 @@
   </div>
   <div id="header">
     <div class="topong">
-      <div class="pad"> <img src="/images/cart.gif" alt="My Cart" />
+      <div class="pad"> <img src="/assets/cart.gif" alt="My Cart" />
         <h4><%= link_to 'Ваша корзина', :root%></h4>
         <br />
         <span class="txt">Пусто</span> 
       </div>
     </div>
     <div class="topong">
-      <div class="pad"> <img src="/images/account.gif" alt="Account" />
+      <div class="pad"> <img src="/assets/account.gif" alt="Account" />
         <h4><%= link_to 'Кабинет', :root%></h4>
         <br />
         <span class="txt">Гость</span> </div>

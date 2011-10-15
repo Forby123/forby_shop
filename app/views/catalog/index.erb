@@ -1,31 +1,31 @@
   <div id="modules">
     <div id="mod3">
-      <div class="padding"> <img src="/images/img.gif" alt="" />
+      <div class="padding"> <img src="/assets/product_small.jpg" alt="" />
         <div class="price"> <span class="only">В НАЛИЧИИ</span><br />
-          18 000 р. </div>
+          <%= @product3.price%>р </div>
         <div class="text">
-          <h2><a href="">LG</a></h2>
-          <p>Стиральная машина с фронтальной загрузкой. 1200 об/мин</p>
+          <h2><%= link_to @product3.name, shop_product_path(@product3)%></h2>
+          <p><%= @product3.about.truncate(95) %></p>
         </div>
       </div>
     </div>
     <div id="mod2">
-      <div class="padding"> <img src="/images/img.gif" alt="" />
+      <div class="padding"> <img src="/assets/product_small.jpg" alt="" />
         <div class="price"> <span class="only">В НАЛИЧИИ</span><br />
-          20 000 р. </div>
+          <%= @product2.price%>р. </div>
         <div class="text">
-          <h2><a href="">Indesit</a></h2>
-          <p>Стиральная машина с фронтальной загрузкой. 1200 об/мин</p>
+          <h2><%= link_to @product2.name, shop_product_path(@product2)%></h2>
+          <p><%= @product2.about.truncate(95)%></p>
         </div>
       </div>
     </div>
     <div id="mod1">
-      <div class="padding"> <img src="/images/img.gif" alt="" />
+      <div class="padding"> <img src="/assets/product_small.jpg" alt="" />
         <div class="price"> <span class="only">ПОД ЗАКАЗ</span><br />
-          15 000 р. </div>
+          <%= @product1.price%>р </div>
         <div class="text">
-          <h2><a href="">Samsung</a></h2>
-          <p>Стиральная машина с фронтальной загрузкой. 900 об/мин</p>
+          <h2><%= link_to @product1.name, shop_product_path(@product1)%></h2>
+          <p><%= @product1.about.truncate(95)%></p>
         </div>
       </div>
     </div>

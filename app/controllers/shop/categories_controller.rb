@@ -1,23 +1,23 @@
-# To change this template, choose Tools | Templates
-# and open the template in the editor.
-
 class Shop::CategoriesController < ApplicationController
 before_filter :authenticate_user!
   def index
-    @categories = Shop::Category.all
+    @categories = Shop::Category.arrange
   end
   def show
     @category = Shop::Category.find_by_id(params[:id])
   end
   def new
     @category = Shop::Category.new
+  	@datatypes = Shop::Datatype.all
+    @category.cat_properties(:order => "position")
+    @category.cat_properties.build    
   end
   def create
-    @category = Shop::Category.new(params[:category])
+    @category = Shop::Category.new(params[:shop_category])
     if @category.save
       redirect_to :action => "index"
     else
-      flash[:error] = @category.errors
+      flash[:error] = @category.errors[0]
       redirect_to :action => "new"
     end
   end
@@ -62,14 +62,24 @@ before_filter :authenticate_user!
     	flash[:error] = @category.errors
     end	
   end
-  def update_position
-		params[:sortlist].each_index do |i|
-    	cat_property = Shop::CatProperty.find(params[:sortlist][i])
-    	cat_property.position = i
-    	cat_property.save
-    end
-		render :nothing => true
-	end
+  def sort
+  	category = Shop::Category.find(params[:category_id])
+  	move_direction = params[:direction]
+  	if move_direction=='left'
+  		next_sib = category.left_sibling
+  	else
+  		next_sib = category.right_sibling  		
+  	end	
+  	if next_sib && category.same_scope?(next_sib)
+  	 if move_direction=='left'
+  			category.move_left
+  		else
+  		  category.move_right
+  		end  
+  		category.save
+  	end
+    redirect_to :action => "index"
+	end  
   def edit
   	@datatypes = Shop::Datatype.all
     @category = Shop::Category.find_by_id(params[:id])
